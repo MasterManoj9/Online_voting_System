@@ -2,7 +2,7 @@
 
 A secure, feature-rich, web-based voting platform built with **PHP**, **MySQL**, and **XAMPP**. Designed for conducting transparent elections with a full-featured **Admin Panel**, an intuitive **Voter Dashboard**, **Email OTP Verification**, **Face Recognition** identity check, **PDF Voter ID Card** generation, and **live Chart.js election results**.
 
-> 🏛️ *Built for Election Commission of India – MLA Elections*
+> 🏛️ *Built for Election Commission of India –  Elections*
 
 ---
 
@@ -405,10 +405,6 @@ http://localhost/Online_voting/
 - [x] ~~Full election reset~~ ✅
 - [x] ~~Role-based color themes~~ ✅
 - [x] ~~Glassmorphism UI~~ ✅
-- [ ] Audit logs for admin actions
-- [ ] Multi-election / multi-constituency support
-- [ ] SMS OTP fallback (Twilio)
-- [ ] Dark mode toggle
 - [x] Voter ID card QR code
 - [x] ~~Dual-model face recognition (SsdMobilenetv1 + TinyFaceDetector)~~ ✅
 - [x] ~~Webcam-only liveness fallback~~ ✅
@@ -416,26 +412,8 @@ http://localhost/Online_voting/
 - [x] ~~Winner announcement popup~~ ✅
 
 ---
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch: `git checkout -b feature/AmazingFeature`
-3. Commit: `git commit -m 'Add AmazingFeature'`
-4. Push: `git push origin feature/AmazingFeature`
-5. Open a Pull Request
-
----
-
-## 📄 License
-
-Licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
----
-
-<div align="center">
-
-**Made with ❤️ for transparent & secure elections**
+Author 
+-Manoj.
 
 ⭐ *Star this repo if you found it useful!* ⭐
 
