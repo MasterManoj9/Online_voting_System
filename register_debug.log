@@ -1,0 +1,66 @@
+13:38:43 → === REGISTRATION ATTEMPT STARTED ===
+13:38:43 → Name=anirudh | Phone=957852648 | Email=7196mohan@gmail.com | Aadhaar=549551895195 | OTP_Verified=1
+13:38:43 → DB OTP check for 7196mohan@gmail.com → rows found: 1
+13:38:43 → Duplicate check → rows: 0
+13:38:43 → Image uploaded: uploads/1776080323_ovs_2.png
+13:38:43 → Running INSERT for anirudh (7196mohan@gmail.com)
+13:38:43 → SUCCESS: User inserted. ID=21
+13:38:43 → OTP records cleaned up for 7196mohan@gmail.com
+13:42:15 → === REGISTRATION ATTEMPT STARTED ===
+13:42:15 → Name=anirudh | Phone=9866251646 | Email=7196mohan@gmail.com | Aadhaar=549551895195 | OTP_Verified=1
+13:42:15 → DB OTP check for 7196mohan@gmail.com → rows found: 1
+13:42:15 → Duplicate check → rows: 0
+13:42:15 → Image uploaded: uploads/1776080535_ovs_2.png
+13:42:15 → Running INSERT for anirudh (7196mohan@gmail.com)
+13:42:15 → SUCCESS: User inserted. ID=22
+13:42:15 → OTP records cleaned up for 7196mohan@gmail.com
+13:47:30 → === REGISTRATION ATTEMPT STARTED ===
+13:47:30 → Name=dattu | Phone=6300630063 | Email=anirudhpoodatthu@gmail.com | Aadhaar=484651668789 | OTP_Verified=1
+13:47:30 → DB OTP check for anirudhpoodatthu@gmail.com → rows found: 1
+13:47:30 → Duplicate check → rows: 0
+13:47:30 → Image uploaded: uploads/1776080850_ovs_2.png
+13:47:30 → Running INSERT for dattu (anirudhpoodatthu@gmail.com)
+13:47:30 → SUCCESS: User inserted. ID=23
+13:47:30 → OTP records cleaned up for anirudhpoodatthu@gmail.com
+16:45:37 → === REGISTRATION ATTEMPT STARTED ===
+16:45:37 → Name= | Phone= | Email= | Aadhaar= | OTP_Verified=0
+16:45:37 → FAIL: Missing required fields
+17:32:50 → === REGISTRATION ATTEMPT STARTED ===
+17:32:50 → Name=narendra  | Phone=8484626154 | Email=yoursmanoj171@gmail.com | Aadhaar=546879123456 | OTP_Verified=1
+17:32:50 → DB OTP check for yoursmanoj171@gmail.com → rows found: 1
+17:32:50 → Duplicate check → rows: 0
+17:32:50 → Image uploaded: uploads/1776094370_WhatsApp Image 2026-04-13 at 20.58.54.jpeg
+17:32:50 → Running INSERT for narendra  (yoursmanoj171@gmail.com)
+17:32:50 → SUCCESS: User inserted. ID=24
+17:32:50 → OTP records cleaned up for yoursmanoj171@gmail.com
+06:22:21 → === REGISTRATION ATTEMPT STARTED ===
+06:22:21 → Name=harin | Phone=6306305656 | Email=chedamharin@gmail.com | Aadhaar=546879123456 | OTP_Verified=1
+06:22:21 → DB OTP check for chedamharin@gmail.com → rows found: 1
+06:22:21 → Duplicate check → rows: 2
+06:22:21 → FAIL: Duplicate user (phone/aadhaar/email already exists)
+09:45:36 → === REGISTRATION ATTEMPT STARTED ===
+09:45:36 → Name=datta  | Phone=6303603656 | Email=yoursmanoj171@gmail.com | Aadhaar=546879123456 | OTP_Verified=1
+09:45:36 → DB OTP check for yoursmanoj171@gmail.com → rows found: 1
+09:45:36 → Duplicate check → rows: 1
+09:45:36 → FAIL: Duplicate user (phone/aadhaar/email already exists)
+11:19:38 → === REGISTRATION ATTEMPT STARTED ===
+11:19:38 → Name=ryan manvar | Phone=9081252268 | Email=ryan2006manvar@gmail.com | Aadhaar=842763689003 | OTP_Verified=1
+11:19:38 → DB OTP check for ryan2006manvar@gmail.com → rows found: 1
+11:19:38 → Duplicate check → rows: 0
+11:19:38 → Image uploaded: uploads/1776158378_WhatsApp Image 2026-04-14 at 14.46.05.jpeg
+11:19:38 → Running INSERT for ryan manvar (ryan2006manvar@gmail.com)
+11:19:38 → SUCCESS: User inserted. ID=25
+11:19:38 → OTP records cleaned up for ryan2006manvar@gmail.com
+18:35:56 → === REGISTRATION ATTEMPT STARTED ===
+18:35:56 → Name=Devi sri | Phone=8096477759 | Email=dasupadmanabhudu485@gmail.com | Aadhaar=842763689003 | OTP_Verified=1
+18:35:56 → DB OTP check for dasupadmanabhudu485@gmail.com → rows found: 1
+18:35:56 → Duplicate check → rows: 1
+18:35:56 → FAIL: Duplicate user (phone/aadhaar/email already exists)
+13:22:17 → === REGISTRATION ATTEMPT STARTED ===
+13:22:17 → Name=Manoj  | Phone=6303605681 | Email=urstrulymanoj171@gmail.com | Aadhaar=842763689003 | OTP_Verified=1
+13:22:17 → DB OTP check for urstrulymanoj171@gmail.com → rows found: 1
+13:22:17 → Duplicate check → rows: 0
+13:22:17 → Image uploaded: uploads/1776338537_WhatsApp Image 2026-04-13 at 20.58.54.jpeg
+13:22:17 → Running INSERT for Manoj  (urstrulymanoj171@gmail.com)
+13:22:17 → SUCCESS: User inserted. ID=7
+13:22:17 → OTP records cleaned up for urstrulymanoj171@gmail.com

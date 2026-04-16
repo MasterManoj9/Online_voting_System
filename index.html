@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Voting System</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #FFE0B2 0%, #FFF3E0 40%, #FFFDE7 100%) !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Online Voting System</h1>
+        <p>Election Commission of India</p>
+    </div>
+
+    <hr>
+
+    <!-- LOGIN -->
+    <div id="loginBox" class="login-container">
+        <h2>Welcome Back &nbsp;👋</h2>
+
+        <form action="login.php" method="POST">
+            <input type="text" name="phone" placeholder="Phone Number" required autofocus>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Log In</button>
+        </form>
+
+        <p class="register-link"><a href="#" onclick="showRegister()">New Voter? Register Here</a></p>
+    </div>
+
+    <!-- REGISTER -->
+    <div id="registerBox" class="login-container" style="display:none; max-width: 520px;">
+        <h2>Voter Registration &nbsp;📝</h2>
+
+        <form id="registerForm" action="register.php" method="POST" enctype="multipart/form-data"
+            onsubmit="return validateRegisterForm()">
+
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="text" name="phone" placeholder="Phone Number" required>
+            <input type="text" name="aadhaar" placeholder="12-digit Aadhaar Number" required>
+            <textarea name="address" placeholder="Residential Address" rows="3" required></textarea>
+            <input type="password" name="password" placeholder="Create Password" required>
+
+            <div style="text-align: left; margin-top: 10px;">
+                <label style="font-size: 0.9rem; color: #6B7280; font-weight: 600;">Upload Passport Photo:</label>
+                <input type="file" name="image" id="photoInput" required onchange="handlePhotoUpload(event)"
+                    accept="image/*" style="padding: 10px 0;">
+            </div>
+            <div id="preview-container"></div>
+
+            <!-- ========== FACE VERIFICATION ========== -->
+            <div id="faceVerifySection"
+                style="display: none; border-top: 2px solid #E5E7EB; padding-top: 20px; margin-top: 15px;">
+                <label
+                    style="font-size: 0.95rem; color: #374151; font-weight: 700; display: block; margin-bottom: 8px;">📸
+                    Face Verification</label>
+                <p style="font-size: 0.82rem; color: #6B7280; margin-bottom: 12px;">We need to verify your face matches
+                    the uploaded photo. Please look at the camera.</p>
+
+                <div
+                    style="position: relative; border-radius: 12px; overflow: hidden; background: #111; text-align: center;">
+                    <video id="webcam" autoplay playsinline muted
+                        style="width: 100%; max-height: 280px; display: block; border-radius: 12px;"></video>
+                    <div id="faceLoadingOverlay"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px;">
+                        <div
+                            style="width: 40px; height: 40px; border: 4px solid rgba(255,255,255,0.2); border-top-color: #8B5CF6; border-radius: 50%; animation: spin 0.8s linear infinite;">
+                        </div>
+                        <p style="color: white; font-size: 0.85rem;">Loading face models...</p>
+                    </div>
+                </div>
+                <style>
+                    @keyframes spin {
+                        to {
+                            transform: rotate(360deg);
+                        }
+                    }
+                </style>
+
+                <button type="button" id="captureBtn" onclick="captureAndVerifyFace()" disabled
+                    style="width: 100%; margin-top: 12px; padding: 14px; opacity: 0.5; cursor: not-allowed; font-size: 0.95rem;">
+                    📸 Capture & Verify Face
+                </button>
+                <p id="faceStatus" style="margin-top: 10px; font-weight: 600; font-size: 0.9rem; text-align: center;">
+                </p>
+            </div>
+
+            <!-- Hidden field to track face verification -->
+            <input type="hidden" name="face_verified" id="faceVerifiedField" value="0">
+
+            <!-- ========== EMAIL + OTP VERIFICATION (hidden until face verified) ========== -->
+            <div id="emailOtpSection" style="display: none;">
+                <div style="border-top: 2px solid #E5E7EB; padding-top: 20px; margin-top: 15px;">
+                    <label
+                        style="font-size: 0.95rem; color: #374151; font-weight: 700; display: block; margin-bottom: 8px;">📧
+                        Email Verification</label>
+
+                    <!-- Email Input + Send OTP Button -->
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <input type="email" name="email" id="regEmail" placeholder="Enter your email address" required
+                            oninput="toggleSendOtpBtn()" style="flex: 1; margin: 0;" autocomplete="off">
+                        <button type="button" id="sendOtpBtn" onclick="sendOTP()" disabled
+                            style="width: auto; min-width: 120px; padding: 14px 16px; margin: 0; opacity: 0.5; cursor: not-allowed; font-size: 0.9rem;">
+                            📨 Send OTP
+                        </button>
+                    </div>
+
+                    <!-- OTP Status Message -->
+                    <p id="otpStatus" style="margin-top: 8px; font-weight: 600; font-size: 0.9rem;"></p>
+
+                    <!-- OTP Input + Verify Button (Hidden until OTP is sent) -->
+                    <div id="otpInputSection" style="display: none; margin-top: 12px;">
+                        <label
+                            style="font-size: 0.85rem; color: #6B7280; font-weight: 600; display: block; margin-bottom: 6px;">Enter
+                            the 6-digit OTP sent to your email:</label>
+                        <div style="display: flex; gap: 8px; align-items: center;">
+                            <input type="text" id="otpInput" placeholder="● ● ● ● ● ●" maxlength="6"
+                                oninput="toggleVerifyOtpBtn()"
+                                style="flex: 1; margin: 0; text-align: center; font-size: 1.4rem; letter-spacing: 10px; font-weight: 700;"
+                                autocomplete="off">
+                            <button type="button" id="verifyOtpBtn" onclick="verifyOTP()" disabled
+                                style="width: auto; min-width: 120px; padding: 14px 16px; margin: 0; opacity: 0.5; cursor: not-allowed; font-size: 0.9rem;">
+                                ✅ Verify
+                            </button>
+                        </div>
+                        <p id="otpTimer"
+                            style="color: var(--text-muted); font-size: 0.85rem; margin-top: 8px; text-align: center;">
+                            ⏳ OTP expires in <strong id="countdown">05:00</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden field to track OTP verification -->
+            <input type="hidden" name="otp_verified" id="otpVerifiedField" value="0">
+
+            <!-- Submit Button (disabled until OTP verified) -->
+            <button type="submit" id="registerSubmitBtn" disabled
+                style="opacity: 0.4; cursor: not-allowed; width: 100%; margin-top: 10px;">
+                🔒 Verify Email to Register
+            </button>
+        </form>
+
+        <p class="register-link"><a href="#" onclick="showLogin()">Already Registered? Log In</a></p>
+    </div>
+
+    <!-- face-api.js for Face Recognition (vladmandic fork - matches the models in script.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api@1.7.13/dist/face-api.js"></script>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="script.js?v=8.0"></script>
+    <script>
+        // Fetch custom election title
+        fetch('get_title.php')
+            .then(res => res.json())
+            .then(data => {
+                if (data.title) {
+                    document.querySelector('.header h1').innerText = data.title;
+                    document.title = data.title;
+                }
+            })
+            .catch(err => console.error(err));
+
+        if (window.location.search.includes("success=1")) {
+            alert("Registration successful! Please login to continue.");
+        }
+    </script>
+
+
+</body>
+
+</html>
