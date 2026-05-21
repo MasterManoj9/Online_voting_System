@@ -392,26 +392,6 @@ http://localhost/Online_voting/
 | Voter removal with vote cleanup | ✅ |
 | Face verification flag stored in DB | ✅ |
 ---
-
-## 📋 Roadmap
-
-- [x] ~~Email OTP verification~~ ✅
-- [x] ~~Face recognition for voter identity~~ ✅
-- [x] ~~Voter & Admin Profile Pages~~ ✅
-- [x] ~~Profile photo upload~~ ✅
-- [x] ~~PDF Voter ID Card generation~~ ✅
-- [x] ~~Chart.js live results (bar + doughnut)~~ ✅
-- [x] ~~Voter removal by admin~~ ✅
-- [x] ~~Full election reset~~ ✅
-- [x] ~~Role-based color themes~~ ✅
-- [x] ~~Glassmorphism UI~~ ✅
-- [x] Voter ID card QR code
-- [x] ~~Dual-model face recognition (SsdMobilenetv1 + TinyFaceDetector)~~ ✅
-- [x] ~~Webcam-only liveness fallback~~ ✅
-- [x] ~~Results locked during active election~~ ✅
-- [x] ~~Winner announcement popup~~ ✅
-
----
 Author 
 -Manoj.
 
